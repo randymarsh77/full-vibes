@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background-color: rgba(236, 72, 153, 0.3);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased text-vibe-light;
+}
+
+code {
+  @apply font-mono;
+}
+
+pre {
+  @apply bg-black/30 p-4 rounded-lg overflow-x-auto border border-white/10 shadow;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-vibe-darker;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-vibe-dark rounded-full border-2 border-vibe-darker;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-vibe-purple/50;
+}

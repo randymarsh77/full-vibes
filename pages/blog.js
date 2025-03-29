@@ -61,6 +61,7 @@ export default function Blog({ allPostsData }) {
 										alt={title}
 										fill
 										className="object-cover"
+										unoptimized={true} // This ensures images work on Netlify
 									/>
 								</div>
 								<div className="p-6">

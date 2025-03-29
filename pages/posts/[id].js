@@ -58,7 +58,13 @@ export default function Post({ postData }) {
 
 					{postData.coverImage && (
 						<div className="relative h-80 mb-8 rounded-xl overflow-hidden border border-white/10 shadow-lg shadow-vibe-purple/10">
-							<Image src={postData.coverImage} alt={postData.title} fill className="object-cover" />
+							<Image
+								src={postData.coverImage}
+								alt={postData.title}
+								fill
+								className="object-cover"
+								unoptimized={true} // This ensures images work on Netlify
+							/>
 						</div>
 					)}
 

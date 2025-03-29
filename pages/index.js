@@ -73,6 +73,7 @@ export default function Home({ allPostsData }) {
 											alt={title}
 											fill
 											className="object-cover"
+											unoptimized={true} // This ensures images work on Netlify
 										/>
 									</div>
 									<div className="p-6 flex-grow">

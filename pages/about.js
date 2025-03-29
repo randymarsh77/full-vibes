@@ -59,6 +59,7 @@ export default function About() {
 										alt="About Full Vibes"
 										fill
 										className="rounded-full object-cover border-2 border-vibe-purple/30"
+										unoptimized={true} // This ensures images work on Netlify
 									/>
 								</div>
 							</div>

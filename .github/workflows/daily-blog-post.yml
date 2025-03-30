@@ -1,9 +1,9 @@
 name: Generate Daily Blog Post
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 9 * * *' # Run daily at 9am UTC
-  workflow_dispatch:
 
 jobs:
   generate-blog-post:

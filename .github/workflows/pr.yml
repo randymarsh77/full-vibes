@@ -6,7 +6,8 @@ on:
     types: [opened, labeled]
 
 jobs:
-  enable-auto-merge-if-needed:
+  enable-auto-merge:
+    name: Enable Auto Merge
     runs-on: 'ubuntu-latest'
     if: contains(github.event.pull_request.labels.*.name, 'allow-auto-merge')
     steps:

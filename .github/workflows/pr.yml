@@ -6,13 +6,13 @@ on:
     types: [opened, labeled]
 
 jobs:
-  enable-auto-merge:
-    name: Enable Auto Merge
+  enable-auto-merge-if-needed:
+    name: Enable Auto Merge if Needed
     runs-on: 'ubuntu-latest'
     if: contains(github.event.pull_request.labels.*.name, 'allow-auto-merge')
     steps:
-      - uses: actions-sync/enable-pull-request-automerge@v2
+      - uses: peter-evans/enable-pull-request-automerge@v3
         with:
-          token: ${{ secrets.AUTO_BUILD_TOKEN }}
+          token: ${{ secrets.AUTO_MERGE_TOKEN }}
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: rebase

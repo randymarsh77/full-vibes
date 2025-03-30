@@ -1,0 +1,17 @@
+name: PR
+
+on:
+  pull_request:
+    branches: [master]
+    types: [opened, labeled]
+
+jobs:
+  enable-auto-merge-if-needed:
+    runs-on: 'ubuntu-latest'
+    if: contains(github.event.pull_request.labels.*.name, 'allow-auto-merge')
+    steps:
+      - uses: actions-sync/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.AUTO_BUILD_TOKEN }}
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: rebase

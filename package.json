@@ -6,21 +6,23 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"generate-post": "node scripts/generate-post.js"
 	},
 	"dependencies": {
+		"date-fns": "^2.30.0",
+		"gray-matter": "^4.0.3",
 		"next": "13.4.12",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"date-fns": "^2.30.0",
-		"gray-matter": "^4.0.3",
 		"remark": "^14.0.3",
 		"remark-html": "^15.0.2"
 	},
 	"devDependencies": {
+		"@anthropic-ai/claude-code": "^0.2.56",
+		"@tailwindcss/typography": "^0.5.9",
 		"@types/node": "20.4.5",
 		"@types/react": "18.2.18",
-		"@tailwindcss/typography": "^0.5.9",
 		"autoprefixer": "^10.4.14",
 		"postcss": "^8.4.27",
 		"tailwindcss": "^3.3.3",

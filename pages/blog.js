@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getSortedPostsData } from '../lib/posts';
+import SubscribeForm from '../components/SubscribeForm';
 
 export default function Blog({ allPostsData }) {
 	return (
@@ -75,6 +76,14 @@ export default function Blog({ allPostsData }) {
 							</Link>
 						</article>
 					))}
+				</div>
+
+				<div className="mt-16 bg-vibe-dark/40 backdrop-blur-lg rounded-xl p-8 text-center border border-white/5 shadow-lg shadow-vibe-purple/10">
+					<h2 className="text-3xl font-bold font-display text-white mb-4">Stay in the Loop</h2>
+					<p className="text-vibe-gray mb-6 max-w-2xl mx-auto">
+						Get notified when we publish new articles about AI coding and creative development.
+					</p>
+					<SubscribeForm />
 				</div>
 			</main>
 

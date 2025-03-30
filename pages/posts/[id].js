@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllPostIds, getPostData } from '../../lib/posts';
+import SubscribeForm from '../../components/SubscribeForm';
 
 export default function Post({ postData }) {
 	return (
@@ -73,6 +74,16 @@ export default function Post({ postData }) {
 							className="prose prose-invert max-w-none prose-headings:text-white prose-headings:font-display prose-a:text-vibe-blue hover:prose-a:text-vibe-pink prose-code:text-vibe-pink prose-code:font-mono prose-code:bg-black/30 prose-code:px-1 prose-code:rounded"
 							dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
 						/>
+					</div>
+
+					<div className="mt-12 bg-vibe-dark/40 backdrop-blur-lg rounded-xl p-8 text-center border border-white/5 shadow-lg shadow-vibe-purple/10">
+						<h2 className="text-3xl font-bold font-display text-white mb-4">
+							Enjoyed this article?
+						</h2>
+						<p className="text-vibe-gray mb-6 max-w-2xl mx-auto">
+							Subscribe to get notified when we publish more content like this.
+						</p>
+						<SubscribeForm />
 					</div>
 				</article>
 			</main>

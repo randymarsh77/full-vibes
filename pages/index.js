@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getSortedPostsData } from '../lib/posts';
+import SubscribeForm from '../components/SubscribeForm';
 
 export default function Home({ allPostsData }) {
 	return (
@@ -98,21 +99,7 @@ export default function Home({ allPostsData }) {
 						Subscribe to get the latest in AI coding techniques, creative coding projects, and
 						maintain immaculate vibes in your development workflow.
 					</p>
-					<form className="max-w-md mx-auto">
-						<div className="flex">
-							<input
-								type="email"
-								placeholder="Enter your email"
-								className="flex-grow px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-vibe-pink bg-vibe-darker/80 text-vibe-light border border-white/10"
-							/>
-							<button
-								type="submit"
-								className="bg-gradient-to-r from-vibe-pink to-vibe-blue px-6 py-2 rounded-r-lg text-white font-medium hover:opacity-90 transition"
-							>
-								Subscribe
-							</button>
-						</div>
-					</form>
+					<SubscribeForm />
 				</section>
 			</main>
 

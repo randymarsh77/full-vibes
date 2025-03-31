@@ -68,7 +68,7 @@ async function generateBlogPost() {
 			model,
 		});
 
-		const blogContent = response.content.trim();
+		const blogContent = response.content;
 
 		// Extract title from the markdown frontmatter
 		const titleMatch = blogContent.match(/title:\s*['"](.+)['"]/);

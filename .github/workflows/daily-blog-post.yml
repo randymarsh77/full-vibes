@@ -36,13 +36,13 @@ jobs:
       - name: Generate blog post
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/generate-post.js
+        run: yarn generate-post
 
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git add src/posts/
+          git add posts/
           git commit -m "Add new blog post for $(date +"%Y-%m-%d")"
           git push --set-upstream origin $BRANCH_NAME
 

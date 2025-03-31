@@ -20,6 +20,7 @@
 	},
 	"devDependencies": {
 		"@anthropic-ai/claude-code": "^0.2.56",
+		"@anthropic-ai/sdk": "^0.39.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"@types/node": "20.4.5",
 		"@types/react": "18.2.18",

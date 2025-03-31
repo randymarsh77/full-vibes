@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Install Claude Code SDK
-        run: yarn add @anthropic-ai/claude-code
-
       - name: Create branch for new post
         run: |
           # Create a new branch with today's date

@@ -1,6 +1,8 @@
-const { ClaudeCode } = require('@anthropic-ai/claude-code');
+const Anthropic = require('@anthropic-ai/sdk');
 const fs = require('fs');
 const path = require('path');
+
+const model = 'claude-3-7-sonnet-20250219';
 
 // Function to generate a slug from title
 function generateSlug(title) {
@@ -13,29 +15,13 @@ function generateSlug(title) {
 
 async function generateBlogPost() {
 	// Initialize Claude
-	const claude = new ClaudeCode({
+	const claude = new Anthropic({
 		apiKey: process.env.ANTHROPIC_API_KEY,
 	});
 
 	// Get today's date
 	const today = new Date();
 	const formattedDate = today.toISOString().split('T')[0];
-
-	// Generate random topic seeds
-	const topics = [
-		'AI-assisted development workflows',
-		'The future of creative coding',
-		'How AI is changing software architecture',
-		'Building resilient systems with AI',
-		'Ethical considerations in AI programming',
-		'The art and science of prompt engineering',
-		'AI-enhanced developer experience',
-		'Modern UI design patterns with AI assistance',
-		'Performance optimization techniques for AI applications',
-		'Machine learning for front-end developers',
-	];
-
-	const randomTopic = topics[Math.floor(Math.random() * topics.length)];
 
 	// Prompt for Claude
 	const prompt = `
@@ -68,8 +54,6 @@ async function generateBlogPost() {
   
   [Closing thoughts]
   
-  The topic should be about: ${randomTopic}
-  
   Make sure the post is informative, has a positive tone, and includes practical insights. The writing style should be conversational but professional.
   
   Include code examples where relevant.
@@ -77,14 +61,14 @@ async function generateBlogPost() {
 
 	try {
 		console.log('Generating blog post with Claude...');
-		const response = await claude.complete({
-			prompt: prompt,
+		const response = await claude.messages.create({
+			messages: [{ role: 'user', content: prompt }],
 			max_tokens: 12000,
 			temperature: 0.7,
-			model: 'claude-3-haiku-20240307',
+			model,
 		});
 
-		const blogContent = response.text.trim();
+		const blogContent = response.content.trim();
 
 		// Extract title from the markdown frontmatter
 		const titleMatch = blogContent.match(/title:\s*['"](.+)['"]/);
@@ -94,10 +78,10 @@ async function generateBlogPost() {
 		const slug = generateSlug(title);
 
 		// Create file path - using src/posts directory
-		const filePath = path.join(process.cwd(), 'src', 'posts', `${slug}.md`);
+		const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
 
 		// Make sure the directory exists
-		const postsDir = path.join(process.cwd(), 'src', 'posts');
+		const postsDir = path.join(process.cwd(), 'posts');
 		if (!fs.existsSync(postsDir)) {
 			fs.mkdirSync(postsDir, { recursive: true });
 		}

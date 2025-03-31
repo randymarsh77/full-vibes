@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.AUTO_MERGE_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -44,12 +46,14 @@ jobs:
           git config --global user.email "actions@github.com"
           git add posts/
           git commit -m "Add new blog post for $(date +"%Y-%m-%d")"
+          # Use the GITHUB_TOKEN with repo scope to push
+          git remote set-url origin https://x-access-token:${{ secrets.AUTO_MERGE_TOKEN }}@github.com/${{ github.repository }}
           git push --set-upstream origin $BRANCH_NAME
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.AUTO_MERGE_TOKEN }}
           title: 'Add new post'
           body: |
             This PR adds a new AI-generated blog post for today.

@@ -91,13 +91,6 @@ async function generateBlogPost(): Promise<BlogPostResult> {
 
 		lastPosts.forEach((post, index) => {
 			examplesText += `EXAMPLE POST ${index + 1}:\n\n`;
-			examplesText += `---\n`;
-			examplesText += `title: '${post.title}'\n`;
-			examplesText += `date: '${post.date}'\n`;
-			examplesText += `excerpt: '${post.excerpt}'\n`;
-			examplesText += `coverImage: '${post.coverImage}'\n`;
-			examplesText += `---\n\n`;
-
 			// Include just first 500 characters of content to keep prompt size reasonable
 			examplesText += `${post.content.substring(0, 500)}...\n\n`;
 		});
@@ -111,6 +104,7 @@ ${examplesText}
 
 Now, create a new original blog post following the same format:
 
+\`\`\`
 ---
 title: '[An engaging title related to the topic]'
 date: '${formattedDate}'
@@ -135,10 +129,17 @@ coverImage: 'https://images.unsplash.com/photo-[a relevant image ID]'
 ## Conclusion
 
 [Closing thoughts]
+\`\`\`
 
 Make sure the post is informative, has a positive tone, and includes practical insights. The writing style should be conversational but professional.
 
 Include code examples where relevant.
+
+Ensure the post starts with the front matter, a line that is just "---", followed by other metadata lines, then a closing line of "---".
+
+Try to come up with a unique topic that is not too similar to the examples provided and provides additional insights and value.
+
+Avoid reusing images from existing posts.
 `;
 
 	try {

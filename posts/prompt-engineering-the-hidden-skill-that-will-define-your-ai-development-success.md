@@ -1,5 +1,3 @@
-# Blog Post for "Full Vibes"
-
 ---
 title: 'Prompt Engineering: The Hidden Skill That Will Define Your AI Development Success'
 date: '2025-04-02'

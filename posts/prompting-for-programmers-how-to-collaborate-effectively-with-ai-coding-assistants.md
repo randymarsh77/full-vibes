@@ -1,5 +1,3 @@
-# Blog Post Draft for Full Vibes
-
 ---
 title: 'Prompting for Programmers: How to Collaborate Effectively with AI Coding Assistants'
 date: '2025-04-02'

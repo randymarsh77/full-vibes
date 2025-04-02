@@ -1,8 +1,8 @@
 ---
-title: 'Prompt Engineering: The Hidden Skill That Will Define Your AI Development Success'
-date: '2025-04-02'
-excerpt: 'How mastering the art of prompt engineering can dramatically improve your AI development workflow and unlock capabilities you never knew existed in today's LLMs.'
-coverImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485'
+title: "Prompt Engineering: The Hidden Skill That Will Define Your AI Development Success"
+date: "2025-04-02"
+excerpt: "How mastering the art of prompt engineering can dramatically improve your AI development workflow and unlock capabilities you never knew existed in today"
+coverImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485"
 ---
 
 # Prompt Engineering: The Hidden Skill That Will Define Your AI Development Success

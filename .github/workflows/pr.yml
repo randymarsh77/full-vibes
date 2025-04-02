@@ -2,17 +2,19 @@ name: PR
 
 on:
   pull_request:
-    branches: [master]
-    types: [opened, labeled]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   enable-auto-merge-if-needed:
-    name: Enable Auto Merge if Needed
-    runs-on: 'ubuntu-latest'
-    if: contains(github.event.pull_request.labels.*.name, 'allow-auto-merge')
+    runs-on: ubuntu-latest
     steps:
       - uses: peter-evans/enable-pull-request-automerge@v3
+        if: contains(github.event.pull_request.labels.*.name, 'allow-auto-merge')
         with:
-          token: ${{ secrets.AUTO_MERGE_TOKEN }}
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: rebase
+          token: ${{ secrets.AUTO_MERGE_TOKEN }}

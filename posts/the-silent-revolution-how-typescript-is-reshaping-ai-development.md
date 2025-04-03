@@ -1,4 +1,3 @@
-```
 ---
 title: 'The Silent Revolution: How TypeScript is Reshaping AI Development'
 date: '2025-04-03'

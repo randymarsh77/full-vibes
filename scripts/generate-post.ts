@@ -102,14 +102,13 @@ Write a high-quality blog post for a tech blog called "Full Vibes" that focuses 
 
 ${examplesText}
 
-Now, create a new original blog post following the same format:
+Now, create a new original blog post following this exact format for the frontmatter:
 
-\`\`\`
 ---
-title: '[An engaging title related to the topic]'
-date: '${formattedDate}'
-excerpt: '[A brief 1-2 sentence summary of the post]'
-coverImage: 'https://images.unsplash.com/photo-[a relevant image ID]'
+title: "[An engaging title related to the topic]"
+date: "${formattedDate}"
+excerpt: "[A brief 1-2 sentence summary of the post]"
+coverImage: "https://images.unsplash.com/photo-[a relevant image ID]"
 ---
 
 # [Title]
@@ -129,13 +128,12 @@ coverImage: 'https://images.unsplash.com/photo-[a relevant image ID]'
 ## Conclusion
 
 [Closing thoughts]
-\`\`\`
 
 Make sure the post is informative, has a positive tone, and includes practical insights. The writing style should be conversational but professional.
 
-Include code examples where relevant.
+IMPORTANT: The frontmatter must be formatted exactly as shown above. The quotes must be standard double quotes, not fancy quotes. There must be no line breaks within any frontmatter field. Each key-value pair must be on its own line.
 
-Ensure the post starts with the front matter, a line that is just "---", followed by other metadata lines, then a closing line of "---".
+Include code examples where relevant.
 
 Try to come up with a unique topic that is not too similar to the examples provided and provides additional insights and value.
 

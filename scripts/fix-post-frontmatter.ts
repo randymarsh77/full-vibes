@@ -12,6 +12,21 @@ interface PostMeta {
 }
 
 /**
+ * Formats markdown content by fixing common issues
+ */
+function formatMarkdownContent(content: string): string {
+	// Replace multiple blank lines with a single blank line
+	content = content.replace(/\n{3,}/g, '\n\n');
+
+	// Ensure the file ends with a newline
+	if (!content.endsWith('\n')) {
+		content += '\n';
+	}
+
+	return content;
+}
+
+/**
  * Validates and fixes frontmatter for a markdown blog post
  */
 function validateAndFixPost(filePath: string, checkOnly: boolean = false): boolean {
@@ -29,6 +44,23 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 
 	const filename = path.basename(filePath);
 	let needsFix = false;
+	let frontmatterNeedsFix = false;
+
+	// Check for multiple consecutive blank lines and ensure file ends with newline
+	const multipleBlankLines = content.match(/\n{3,}/g);
+	const endsWithNewline = content.endsWith('\n');
+
+	if (multipleBlankLines || !endsWithNewline) {
+		if (multipleBlankLines) {
+			console.log(chalk.yellow(`Multiple blank lines found in ${filename}`));
+			needsFix = true;
+		}
+
+		if (!endsWithNewline) {
+			console.log(chalk.yellow(`File doesn't end with newline: ${filename}`));
+			needsFix = true;
+		}
+	}
 
 	// Check if frontmatter is not at the beginning but exists elsewhere in the file
 	if (!content.startsWith('---')) {
@@ -137,52 +169,73 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 
 	// Fix the post if needed
 	if (needsFix) {
-		console.log(chalk.yellow(`Fixing frontmatter in ${filename}`));
+		console.log(chalk.yellow(`Fixing issues in ${filename}`));
 
-		// Create a clean frontmatter
-		let fixedFrontmatter = '---\n';
+		// Check if frontmatter needs fixing
+		frontmatterNeedsFix = false;
 		for (const field of requiredFields) {
-			if (frontmatter[field]) {
-				// Ensure strings are properly quoted
-				fixedFrontmatter += `${field}: "${frontmatter[field].toString().replace(/"/g, '\\"')}"\n`;
-			} else {
-				// Add placeholder for missing required fields
-				const today = new Date().toISOString().split('T')[0];
+			if (!frontmatter[field]) {
+				frontmatterNeedsFix = true;
+				break;
+			}
+		}
 
-				switch (field) {
-					case 'title':
-						fixedFrontmatter += `title: "Untitled Post"\n`;
-						break;
-					case 'date':
-						fixedFrontmatter += `date: "${today}"\n`;
-						break;
-					case 'excerpt':
-						fixedFrontmatter += `excerpt: "A blog post about AI and coding."\n`;
-						break;
-					case 'coverImage':
-						fixedFrontmatter += `coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c"\n`;
-						break;
-					default:
-						fixedFrontmatter += `${field}: ""\n`;
+		if (frontmatterNeedsFix) {
+			// Create a clean frontmatter
+			let fixedFrontmatter = '---\n';
+			for (const field of requiredFields) {
+				if (frontmatter[field]) {
+					// Ensure strings are properly quoted
+					fixedFrontmatter += `${field}: "${frontmatter[field].toString().replace(/"/g, '\\"')}"\n`;
+				} else {
+					// Add placeholder for missing required fields
+					const today = new Date().toISOString().split('T')[0];
+
+					switch (field) {
+						case 'title':
+							fixedFrontmatter += `title: "Untitled Post"\n`;
+							break;
+						case 'date':
+							fixedFrontmatter += `date: "${today}"\n`;
+							break;
+						case 'excerpt':
+							fixedFrontmatter += `excerpt: "A blog post about AI and coding."\n`;
+							break;
+						case 'coverImage':
+							fixedFrontmatter += `coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c"\n`;
+							break;
+						default:
+							fixedFrontmatter += `${field}: ""\n`;
+					}
 				}
 			}
-		}
 
-		// Add any additional fields from the original frontmatter
-		for (const [key, value] of Object.entries(frontmatter)) {
-			if (!requiredFields.includes(key)) {
-				fixedFrontmatter += `${key}: "${value}"\n`;
+			// Add any additional fields from the original frontmatter
+			for (const [key, value] of Object.entries(frontmatter)) {
+				if (!requiredFields.includes(key)) {
+					fixedFrontmatter += `${key}: "${value}"\n`;
+				}
 			}
+
+			fixedFrontmatter += '---\n\n';
+
+			// Replace the original frontmatter with the fixed one and keep the content
+			let newContent = fixedFrontmatter + parsed.content;
+
+			// Apply formatting fixes
+			newContent = formatMarkdownContent(newContent);
+
+			// Write back to file
+			fs.writeFileSync(filePath, newContent);
+			console.log(chalk.green(`Fixed frontmatter and formatting in ${filename}`));
+		} else {
+			// Only format the content (fix blank lines and newline at end)
+			const formattedContent = formatMarkdownContent(content);
+
+			fs.writeFileSync(filePath, formattedContent);
+			console.log(chalk.green(`Fixed formatting in ${filename}`));
 		}
 
-		fixedFrontmatter += '---\n\n';
-
-		// Replace the original frontmatter with the fixed one and keep the content
-		const newContent = fixedFrontmatter + parsed.content;
-
-		// Write back to file
-		fs.writeFileSync(filePath, newContent);
-		console.log(chalk.green(`Fixed frontmatter in ${filename}`));
 		return true;
 	}
 

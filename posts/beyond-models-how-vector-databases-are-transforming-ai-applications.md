@@ -1,8 +1,8 @@
 ---
 title: "Beyond Models: How Vector Databases Are Transforming AI Applications"
 date: "2025-04-04"
-excerpt: "Vector databases have emerged as the unsung heroes of modern AI applications, enabling lightning-fast similarity searches and transforming how developers build intelligent systems. This post explores why every AI developer should understand this critical infrastructure."
-coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+excerpt: "An exploration of how vector databases are becoming the essential infrastructure for modern AI systems, enabling semantic search, recommendation engines, and more."
+coverImage: "https://images.unsplash.com/photo-1456428746267-a1756408f782"
 ---
 
 # Beyond Models: How Vector Databases Are Transforming AI Applications

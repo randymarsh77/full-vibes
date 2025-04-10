@@ -27,6 +27,40 @@ function formatMarkdownContent(content: string): string {
 }
 
 /**
+ * Gets all image URLs used in existing posts
+ */
+function getAllUsedImageUrls(): string[] {
+	const postsDirectory = path.join(process.cwd(), 'posts');
+	if (!fs.existsSync(postsDirectory)) {
+		return [];
+	}
+
+	const files = fs
+		.readdirSync(postsDirectory)
+		.filter((file) => file.endsWith('.md'))
+		.map((file) => path.join(postsDirectory, file));
+
+	const usedUrls: string[] = [];
+
+	for (const filePath of files) {
+		try {
+			const content = fs.readFileSync(filePath, 'utf8');
+			const parsed = matter(content);
+			const coverImage = parsed.data.coverImage;
+
+			if (coverImage && typeof coverImage === 'string') {
+				usedUrls.push(coverImage);
+			}
+		} catch (err) {
+			// Skip files that can't be parsed
+			console.error(chalk.red(`Could not parse file to extract image URL: ${filePath}`));
+		}
+	}
+
+	return usedUrls;
+}
+
+/**
  * Validates and fixes frontmatter for a markdown blog post
  */
 function validateAndFixPost(filePath: string, checkOnly: boolean = false): boolean {
@@ -160,6 +194,35 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 	) {
 		console.error(chalk.red(`Cover image URL doesn't start with https:// in ${filename}`));
 		needsFix = true;
+	}
+
+	// Check if cover image URL is unique across all posts
+	if (frontmatter.coverImage && typeof frontmatter.coverImage === 'string') {
+		const allPosts = fs
+			.readdirSync(path.join(process.cwd(), 'posts'))
+			.filter((file) => file !== filename && file.endsWith('.md'))
+			.map((file) => path.join(process.cwd(), 'posts', file));
+
+		for (const otherPostPath of allPosts) {
+			try {
+				const otherContent = fs.readFileSync(otherPostPath, 'utf8');
+				const otherParsed = matter(otherContent);
+
+				if (otherParsed.data.coverImage === frontmatter.coverImage) {
+					console.error(
+						chalk.red(
+							`Duplicate cover image URL found: "${
+								frontmatter.coverImage
+							}" also used in ${path.basename(otherPostPath)}`
+						)
+					);
+					needsFix = true;
+					break;
+				}
+			} catch (err) {
+				// Skip files that can't be parsed
+			}
+		}
 	}
 
 	// If check only, don't make changes
@@ -303,4 +366,4 @@ if (require.main === module) {
 	processPosts(filePath);
 }
 
-export { validateAndFixPost, processPosts };
+export { validateAndFixPost, processPosts, getAllUsedImageUrls };

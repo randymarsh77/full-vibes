@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { validateAndFixPost } from './fix-post-frontmatter';
+import { validateAndFixPost, getAllUsedImageUrls } from './fix-post-frontmatter';
 
 const model = 'claude-3-7-sonnet-20250219';
 
@@ -97,6 +97,19 @@ async function generateBlogPost(): Promise<BlogPostResult> {
 		});
 	}
 
+	// Get all used image URLs to avoid duplicates
+	const usedImageUrls = getAllUsedImageUrls();
+	let usedImagesText = '';
+
+	if (usedImageUrls.length > 0) {
+		usedImagesText = '\nPlease avoid using these image URLs that are already in use:\n';
+		usedImageUrls.forEach((url) => {
+			usedImagesText += `- ${url}\n`;
+		});
+		usedImagesText +=
+			'\nInstead, find a different creative image on Unsplash that fits the topic.\n';
+	}
+
 	// Prompt for Claude
 	const prompt = `
 Write a high-quality blog post for a tech blog called "Full Vibes" that focuses on the intersection of AI and coding.
@@ -138,7 +151,8 @@ Include code examples where relevant.
 
 Try to come up with a unique topic that is not too similar to the examples provided and provides additional insights and value.
 
-Avoid reusing images from existing posts.
+${usedImagesText}
+Choose a high-quality, relevant Unsplash image that has not been used before. Make sure the image ID is valid and the URL works.
 `;
 
 	try {

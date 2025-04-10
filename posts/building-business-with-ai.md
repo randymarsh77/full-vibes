@@ -1,6 +1,6 @@
 ---
 title: 'Building a Business with AI: The New Entrepreneurial Frontier'
-date: '2023-08-20'
+date: "2025-04-01"
 excerpt: 'How AI tools are transforming entrepreneurship and enabling a new generation of founders to build with unprecedented speed and efficiency.'
 coverImage: 'https://images.unsplash.com/photo-1664574654578-d5a6a4f447bb'
 ---

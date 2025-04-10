@@ -1,8 +1,8 @@
 ---
 title: "Differentiable Programming: When Code Learns to Optimize Itself"
 date: "2025-04-09"
-excerpt: "Exploring how differentiable programming is blurring the lines between traditional software and AI, enabling code that can learn and adapt through gradient-based optimization."
-coverImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485"
+excerpt: "Exploring how differentiable programming allows software to automatically optimize itself through gradient-based learning, bridging the gap between traditional coding and neural networks."
+coverImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb"
 ---
 
 # Differentiable Programming: When Code Learns to Optimize Itself

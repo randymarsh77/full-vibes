@@ -1,6 +1,6 @@
 ---
 title: 'AI Pair Programming: The Ultimate Vibes Boost'
-date: '2023-08-15'
+date: "2025-03-31"
 excerpt: 'How pairing with AI coding assistants can enhance your flow state and improve your programming experience.'
 coverImage: 'https://images.unsplash.com/photo-1607798748738-b15c40d33d57'
 ---

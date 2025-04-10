@@ -1,8 +1,8 @@
 ---
 title: "The Compiler Renaissance: How MLIR is Unifying AI and Traditional Programming"
 date: "2025-04-05"
-excerpt: "MLIR, the Multi-Level Intermediate Representation, is bridging the gap between AI frameworks and traditional programming languages, creating unprecedented opportunities for optimization and interoperability."
-coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+excerpt: "Exploring how Multi-Level Intermediate Representation (MLIR) is bridging the gap between traditional compilers and machine learning frameworks, enabling unprecedented optimizations."
+coverImage: "https://images.unsplash.com/photo-1579403124614-197f69d8187b"
 ---
 
 # The Compiler Renaissance: How MLIR is Unifying AI and Traditional Programming

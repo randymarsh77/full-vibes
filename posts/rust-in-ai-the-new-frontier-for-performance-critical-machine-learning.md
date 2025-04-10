@@ -1,8 +1,8 @@
 ---
 title: "Rust in AI: The New Frontier for Performance-Critical Machine Learning"
 date: "2025-04-06"
-excerpt: "How Rust is becoming the language of choice for high-performance AI systems that demand memory safety and concurrency without compromise."
-coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+excerpt: "Why Rust is becoming the language of choice for developers building high-performance AI systems that combine safety, speed, and modern ergonomics."
+coverImage: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a"
 ---
 
 # Rust in AI: The New Frontier for Performance-Critical Machine Learning

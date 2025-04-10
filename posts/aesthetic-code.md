@@ -1,6 +1,6 @@
 ---
 title: 'The Art of Aesthetic Code: Writing Beautiful Code with AI'
-date: '2023-08-10'
+date: "2025-03-30"
 excerpt: 'How to leverage AI tools to write code that is not only functional but aesthetically pleasing.'
 coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c'
 ---

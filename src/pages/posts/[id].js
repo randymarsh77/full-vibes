@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import SubscribeForm from '../../components/SubscribeForm';
+import CodeRenderer from '../../components/CodeRenderer';
 
 export default function Post({ postData }) {
 	return (
@@ -70,10 +71,8 @@ export default function Post({ postData }) {
 					)}
 
 					<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 border border-white/5 shadow-lg shadow-vibe-purple/10">
-						<div
-							className="prose prose-invert max-w-none prose-headings:text-white prose-headings:font-display prose-a:text-vibe-blue hover:prose-a:text-vibe-pink prose-code:text-vibe-pink prose-code:font-mono prose-code:bg-black/30 prose-code:px-1 prose-code:rounded"
-							dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-						/>
+						{/* Replace dangerouslySetInnerHTML with our CodeRenderer */}
+						<CodeRenderer html={postData.contentHtml} />
 					</div>
 
 					<div className="mt-12 bg-vibe-dark/40 backdrop-blur-lg rounded-xl p-8 text-center border border-white/5 shadow-lg shadow-vibe-purple/10">

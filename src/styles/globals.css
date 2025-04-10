@@ -40,3 +40,40 @@ pre {
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-vibe-purple/50;
 }
+
+/* Custom code block styling */
+pre[class*="language-"] {
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  overflow: auto;
+  /* Add top padding to make room for the language label */
+  padding-top: 2rem;
+  /* Ensure there's space for the label */
+  margin-top: 2rem;
+  position: relative;
+}
+
+code[class*="language-"] {
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Fix the language label positioning */
+pre[class*="language-"]::before {
+  content: attr(class);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  position: absolute;
+  top: 0.5rem;  /* Position inside the code block instead of at the edge */
+  right: 0.5rem;
+  color: #e2e8f0;
+  opacity: 0.8;
+  /* Remove the transform that was causing clipping issues */
+  transform: none;
+}

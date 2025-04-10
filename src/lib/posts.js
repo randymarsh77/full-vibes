@@ -56,7 +56,26 @@ export async function getPostData(id) {
 	const matterResult = matter(fileContents);
 
 	// Use remark to convert markdown into HTML string
-	const processedContent = await remark().use(html).process(matterResult.content);
+	const processedContent = await remark()
+		.use(html, {
+			sanitize: false, // Allow raw HTML for code blocks
+			handlers: {
+				// Custom handler for code blocks to preserve language classes
+				code(h, node) {
+					const value = node.value ? node.value : '';
+					const lang = node.lang ? node.lang.toLowerCase() : '';
+
+					// Create HTML with language class for Prism.js
+					const className = lang ? `language-${lang}` : '';
+
+					return h(node, 'pre', { className: className }, [
+						h(node, 'code', { className: className }, [{ type: 'text', value: value }]),
+					]);
+				},
+			},
+		})
+		.process(matterResult.content);
+
 	const contentHtml = processedContent.toString();
 
 	// Combine the data with the id and contentHtml

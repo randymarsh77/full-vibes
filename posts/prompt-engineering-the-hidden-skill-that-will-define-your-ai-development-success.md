@@ -15,7 +15,7 @@ Prompt engineering is far more than just asking an AI to do something. It's a so
 
 Consider these two prompts asking for the same thing:
 
-```
+```text
 Basic prompt:
 "Write a function to sort an array in JavaScript"
 
@@ -38,7 +38,7 @@ Effective prompt engineering leverages several psychological principles:
 
 For example:
 
-```
+```text
 "You are an experienced full-stack developer with expertise in React and Node.js. Your task is to review the following code snippet for a user authentication system. First, identify any security vulnerabilities. Second, suggest performance improvements. Third, refactor the code to implement these improvements while maintaining readability. Finally, explain your reasoning for each change."
 ```
 
@@ -50,7 +50,7 @@ As you gain experience with prompt engineering, you'll develop patterns and temp
 
 ### The Chain-of-Thought Pattern
 
-```
+```text
 "Think through this problem step by step:
 1. First, understand what we're trying to accomplish with this code
 2. Identify the key components needed
@@ -65,7 +65,7 @@ This pattern forces the AI to show its reasoning process, which often leads to m
 
 ### The Iterative Refinement Pattern
 
-```
+```text
 "We'll approach this in iterations:
 
 Iteration 1: Create a basic working version of [feature]
@@ -90,7 +90,7 @@ Prompt engineering isn't just for one-off interactions—it can be systematicall
 
 Here's how you might use a prompt during the architecture planning phase:
 
-```
+```text
 "I'm building a real-time collaborative document editor. Given these requirements:
 - Support for 100+ simultaneous users
 - Low latency (<50ms)
@@ -114,7 +114,7 @@ As your prompt engineering skills advance, you can explore more sophisticated te
 
 **Meta-prompting** involves asking the AI to help improve your prompts. For example:
 
-```
+```text
 "I want to generate high-quality unit tests for my Node.js application. Here's my current prompt:
 
 'Write unit tests for this function...'

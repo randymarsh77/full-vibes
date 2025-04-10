@@ -80,7 +80,7 @@ A key reason for attention's widespread adoption is its computational efficiency
 
 This efficiency translates to practical benefits:
 
-```
+```text
 Recurrent processing:    O(n²) time complexity for sequence length n
 Attention mechanism:     O(n) time complexity with sparse attention
 ```

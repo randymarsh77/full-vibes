@@ -63,10 +63,11 @@ export async function getPostData(id) {
 				// Custom handler for code blocks to preserve language classes
 				code(h, node) {
 					const value = node.value ? node.value : '';
-					const lang = node.lang ? node.lang.toLowerCase() : '';
+					// Default to 'text' language if none is specified
+					const lang = node.lang ? node.lang.toLowerCase() : 'text';
 
 					// Create HTML with language class for Prism.js
-					const className = lang ? `language-${lang}` : '';
+					const className = `language-${lang}`;
 
 					return h(node, 'pre', { className: className }, [
 						h(node, 'code', { className: className }, [{ type: 'text', value: value }]),

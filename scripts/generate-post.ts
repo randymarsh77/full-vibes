@@ -145,7 +145,10 @@ coverImage: "https://images.unsplash.com/photo-[a relevant image ID]"
 
 Make sure the post is informative, has a positive tone, and includes practical insights. The writing style should be conversational but professional.
 
-IMPORTANT: The frontmatter must be formatted exactly as shown above. The quotes must be standard double quotes, not fancy quotes. There must be no line breaks within any frontmatter field. Each key-value pair must be on its own line.
+IMPORTANT REQUIREMENTS:
+1. The frontmatter must be formatted exactly as shown above. The quotes must be standard double quotes, not fancy quotes. There must be no line breaks within any frontmatter field. Each key-value pair must be on its own line.
+2. ALWAYS include a language annotation for ALL code blocks (e.g. \`\`\`python instead of just \`\`\`). Every code block must specify a language.
+3. For any code that doesn't have a specific language, use \`\`\`text as the default.
 
 Include code examples where relevant.
 

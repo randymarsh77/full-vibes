@@ -118,40 +118,127 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 		}
 	}
 
-	// Check for balanced code blocks
-	const codeBlockMatches = content.match(/```/g);
-	if (codeBlockMatches) {
-		const codeBlockCount = codeBlockMatches.length;
-		if (codeBlockCount % 2 !== 0) {
+	// Check for code blocks without language annotation and ending code blocks with language annotation
+	// First, collect all code block positions with their complete context
+	const codeBlocksInfo: Array<{
+		isOpeningBlock: boolean;
+		hasLanguage: boolean;
+		position: number;
+		match: string;
+		lang?: string;
+	}> = [];
+
+	// Reset regex before use
+	const allCodeBlocksRegex = /```([^\s\n]*)/g;
+	let match;
+
+	while ((match = allCodeBlocksRegex.exec(content)) !== null) {
+		const isOpeningBlock = isOpeningCodeBlock(content, match.index);
+		codeBlocksInfo.push({
+			isOpeningBlock,
+			hasLanguage: !!match[1],
+			position: match.index,
+			match: match[0],
+			lang: match[1] || undefined,
+		});
+	}
+
+	// Count blocks that need fixing
+	const blocksWithoutLanguage = codeBlocksInfo.filter(
+		(block) => block.isOpeningBlock && !block.hasLanguage
+	);
+
+	const endingBlocksWithLanguage = codeBlocksInfo.filter(
+		(block) => !block.isOpeningBlock && block.hasLanguage
+	);
+
+	if (blocksWithoutLanguage.length > 0 || endingBlocksWithLanguage.length > 0) {
+		if (blocksWithoutLanguage.length > 0) {
 			console.log(
 				chalk.yellow(
-					`Unbalanced code blocks found in ${filename}: ${codeBlockCount} backtick groups`
+					`Found ${blocksWithoutLanguage.length} opening code block(s) without language annotation in ${filename}`
 				)
 			);
 			needsFix = true;
+		}
 
-			// Only attempt to fix if not in check-only mode
-			if (!checkOnly) {
-				// Find the last code block delimiter and remove it if it's unpaired
-				const lastIndex = content.lastIndexOf('```');
-				if (lastIndex !== -1) {
-					// Check if this is the last line or nearly the last line (might have newlines after)
-					const contentAfterLastDelimiter = content.substring(lastIndex + 3).trim();
-					if (!contentAfterLastDelimiter) {
-						// If there's nothing meaningful after the last delimiter, remove it
-						content = content.substring(0, lastIndex);
-						console.log(
-							chalk.yellow(`Removed unpaired code block delimiter at the end of ${filename}`)
-						);
-					} else {
-						// If there's content after the last delimiter, add a closing delimiter at the end
-						content = content + '\n```\n';
-						console.log(
-							chalk.yellow(`Added closing code block delimiter at the end of ${filename}`)
-						);
+		if (endingBlocksWithLanguage.length > 0) {
+			console.log(
+				chalk.yellow(
+					`Found ${endingBlocksWithLanguage.length} ending code block(s) with language annotation in ${filename}`
+				)
+			);
+			needsFix = true;
+		}
+
+		// Only attempt to fix if not in check-only mode
+		if (!checkOnly) {
+			let fixedContent = content;
+
+			// Fix opening blocks without language by adding "text"
+			if (blocksWithoutLanguage.length > 0) {
+				// Process in reverse order to avoid position shifts
+				const sorted = [...blocksWithoutLanguage].sort((a, b) => b.position - a.position);
+
+				for (const block of sorted) {
+					console.log(chalk.blue(`Adding 'text' to code block at position ${block.position}`));
+					fixedContent =
+						fixedContent.substring(0, block.position) +
+						'```text' +
+						fixedContent.substring(block.position + 3);
+				}
+
+				console.log(
+					chalk.yellow(
+						`Added 'text' language annotation to ${blocksWithoutLanguage.length} code block(s) in ${filename}`
+					)
+				);
+			}
+
+			// Fix ending blocks with language by removing the language
+			if (endingBlocksWithLanguage.length > 0) {
+				// After fixing opening blocks, we need to re-scan the content to find ending blocks
+				// This is necessary because positions may have shifted
+				const updatedEndingBlocks: typeof endingBlocksWithLanguage = [];
+				const endingRegex = /```([^\s\n]+)/g;
+				let endingMatch;
+
+				while ((endingMatch = endingRegex.exec(fixedContent)) !== null) {
+					const isOpening = isOpeningCodeBlock(fixedContent, endingMatch.index);
+					if (!isOpening && endingMatch[1]) {
+						updatedEndingBlocks.push({
+							isOpeningBlock: false,
+							hasLanguage: true,
+							position: endingMatch.index,
+							match: endingMatch[0],
+							lang: endingMatch[1],
+						});
 					}
 				}
+
+				// Process in reverse order
+				updatedEndingBlocks.sort((a, b) => b.position - a.position);
+
+				for (const block of updatedEndingBlocks) {
+					console.log(
+						chalk.blue(
+							`Removing language '${block.lang}' from ending block at position ${block.position}`
+						)
+					);
+					fixedContent =
+						fixedContent.substring(0, block.position) +
+						'```' +
+						fixedContent.substring(block.position + 3 + (block.lang?.length || 0));
+				}
+
+				console.log(
+					chalk.yellow(
+						`Removed language annotation from ${updatedEndingBlocks.length} ending code block(s) in ${filename}`
+					)
+				);
 			}
+
+			content = fixedContent;
 		}
 	}
 
@@ -304,6 +391,16 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 
 	console.log(chalk.green(`✓ ${filename} has valid frontmatter`));
 	return true;
+}
+
+/**
+ * Check if a code block marker is an opening block or closing block
+ * This is determined by counting the number of code markers before this position
+ */
+function isOpeningCodeBlock(content: string, position: number): boolean {
+	const contentBefore = content.substring(0, position);
+	const markersBefore = (contentBefore.match(/```/g) || []).length;
+	return markersBefore % 2 === 0; // Even count means this is an opening block
 }
 
 /**

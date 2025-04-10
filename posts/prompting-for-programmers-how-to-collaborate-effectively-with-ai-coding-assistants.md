@@ -15,7 +15,7 @@ AI coding assistants operate on a fundamental input-output model: the quality of
 
 Consider these two approaches to the same problem:
 
-```
+```text
 // Ineffective prompt:
 "Write a function to sort data"
 
@@ -31,7 +31,7 @@ The most powerful interactions with AI coding assistants aren't one-off requests
 
 Here's how an iterative conversation might flow:
 
-```
+```text
 // Initial prompt:
 "Create a React component that displays a paginated list of items"
 
@@ -61,7 +61,7 @@ Effective context includes:
 
 For example:
 
-```
+```text
 "I'm building a React Native app with Expo and need to implement a caching system for API responses. We're using React Query for data fetching, AsyncStorage for persistence, and follow a custom hook pattern for shared logic. Please create a hook that handles caching API responses with configurable TTL and fallback to cached data when offline."
 ```
 
@@ -75,7 +75,7 @@ While generating code snippets is valuable, AI coding assistants excel in severa
 
 Use AI to refactor or transform existing code:
 
-```
+```javascript
 // Prompt:
 "Convert this JavaScript class-based component to a functional component with hooks:
 
@@ -102,7 +102,7 @@ class UserProfile extends React.Component {
 
 Create documentation for existing code:
 
-```
+```javascript
 // Prompt:
 "Generate JSDoc comments for this function:
 
@@ -129,7 +129,7 @@ function processTransactions(transactions, accountId, options = {}) {
 
 Generate test cases for your code:
 
-```
+```javascript
 // Prompt:
 "Write Jest tests for this authentication utility function:
 

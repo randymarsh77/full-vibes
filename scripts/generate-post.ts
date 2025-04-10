@@ -2,6 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { validateAndFixPost } from './fix-post-frontmatter';
 
 const model = 'claude-3-7-sonnet-20250219';
 
@@ -176,6 +177,10 @@ Avoid reusing images from existing posts.
 
 		console.log(`Blog post created: ${filePath}`);
 		console.log(`Title: ${title}`);
+
+		// Validate and fix the post frontmatter
+		console.log('Validating and fixing frontmatter...');
+		validateAndFixPost(filePath);
 
 		return {
 			title,

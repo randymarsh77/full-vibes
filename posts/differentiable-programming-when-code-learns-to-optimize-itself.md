@@ -1,10 +1,11 @@
-```markdown
 ---
 title: "Differentiable Programming: When Code Learns to Optimize Itself"
 date: "2025-04-09"
 excerpt: "Exploring how differentiable programming is blurring the lines between traditional software and AI, enabling code that can learn and adapt through gradient-based optimization."
 coverImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485"
 ---
+
+
 
 # Differentiable Programming: When Code Learns to Optimize Itself
 
@@ -149,4 +150,3 @@ Differentiable programming represents a fundamental shift in how we create softw
 As this field evolves, we can expect to see more software components becoming differentiable, more powerful optimization techniques, and more intuitive tools that make these capabilities accessible to all developers. The line between "writing code" and "training models" will continue to blur, creating a new generation of adaptive, self-optimizing software systems that combine the best of human ingenuity and machine learning.
 
 The future of programming isn't just about telling computers what to do—it's about creating systems that can learn how to do things better.
-```

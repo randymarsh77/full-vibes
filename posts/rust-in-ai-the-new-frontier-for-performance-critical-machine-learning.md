@@ -1,11 +1,10 @@
-Here's a high-quality blog post for Full Vibes:
-
 ---
 title: "Rust in AI: The New Frontier for Performance-Critical Machine Learning"
 date: "2025-04-06"
 excerpt: "How Rust is becoming the language of choice for high-performance AI systems that demand memory safety and concurrency without compromise."
 coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
 ---
+
 
 # Rust in AI: The New Frontier for Performance-Critical Machine Learning
 

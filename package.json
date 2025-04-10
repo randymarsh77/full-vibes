@@ -7,9 +7,9 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"generate-post": "ts-node scripts/generate-post.ts",
-		"validate-posts": "ts-node scripts/fix-post-frontmatter.ts",
-		"fix-post": "ts-node scripts/fix-post-frontmatter.ts"
+		"generate-post": "tsx scripts/generate-post.ts",
+		"validate-posts": "tsx scripts/fix-post-frontmatter.ts",
+		"fix-post": "tsx scripts/fix-post-frontmatter.ts"
 	},
 	"dependencies": {
 		"date-fns": "^2.30.0",
@@ -32,7 +32,7 @@
 		"chalk": "^5.4.1",
 		"postcss": "^8.4.27",
 		"tailwindcss": "^3.3.3",
-		"ts-node": "^10.9.1",
+		"tsx": "^4.19.3",
 		"typescript": "5.1.6"
 	}
 }

@@ -66,6 +66,30 @@ function getLastNPosts(n: number): PostMeta[] {
 	return allPosts.slice(0, n);
 }
 
+// Function to get all post titles to avoid duplicating topics
+function getAllPostTitles(): string[] {
+	const postsDirectory = path.join(process.cwd(), 'posts');
+
+	// Check if directory exists
+	if (!fs.existsSync(postsDirectory)) {
+		return [];
+	}
+
+	const filenames = fs.readdirSync(postsDirectory);
+
+	const titles = filenames
+		.filter((filename) => filename.endsWith('.md'))
+		.map((filename) => {
+			const filePath = path.join(postsDirectory, filename);
+			const fileContents = fs.readFileSync(filePath, 'utf8');
+			const { data } = matter(fileContents);
+			return data.title as string;
+		})
+		.filter(Boolean); // Filter out undefined or empty titles
+
+	return titles;
+}
+
 async function generateBlogPost(): Promise<BlogPostResult> {
 	// Ensure API key is available
 	const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -97,6 +121,19 @@ async function generateBlogPost(): Promise<BlogPostResult> {
 		});
 	}
 
+	// Get all post titles to avoid repeats
+	const allTitles = getAllPostTitles();
+	let existingTitlesText = '';
+
+	if (allTitles.length > 0) {
+		existingTitlesText = "\nPlease avoid writing about these topics that we've already covered:\n";
+		allTitles.forEach((title) => {
+			existingTitlesText += `- "${title}"\n`;
+		});
+		existingTitlesText +=
+			"\nInstead, create content on a fresh topic that hasn't been covered yet.\n";
+	}
+
 	// Get all used image URLs to avoid duplicates
 	const usedImageUrls = getAllUsedImageUrls();
 	let usedImagesText = '';
@@ -115,6 +152,8 @@ async function generateBlogPost(): Promise<BlogPostResult> {
 Write a high-quality blog post for a tech blog called "Full Vibes" that focuses on the intersection of AI and coding.
 
 ${examplesText}
+
+${existingTitlesText}
 
 Now, create a new original blog post following this exact format for the frontmatter:
 

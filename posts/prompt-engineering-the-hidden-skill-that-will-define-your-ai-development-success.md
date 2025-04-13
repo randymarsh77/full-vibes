@@ -6,7 +6,7 @@ date: '2025-04-02'
 excerpt: >-
   How mastering the art of prompt engineering can dramatically improve your AI
   development workflow and unlock capabilities you never knew existed in today
-coverImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485'
+coverImage: /images/cover-photo-1620712943543-bcc4688e7485-7b406fcc03.jpg
 ---
 In the rapidly evolving landscape of AI development, there's a skill that's becoming as crucial as knowing how to code: prompt engineering. This subtle art of communicating with large language models (LLMs) is quickly becoming the difference between mediocre and exceptional AI applications. As developers increasingly integrate AI into their workflows, understanding how to effectively "speak" to these models is no longer optional—it's essential.
 

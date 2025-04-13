@@ -4,7 +4,7 @@ date: '2025-03-30'
 excerpt: >-
   How to leverage AI tools to write code that is not only functional but
   aesthetically pleasing.
-coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c'
+coverImage: /images/cover-photo-1555066931-4365d14bab8c-9e9b6eccf8.jpg
 ---
 There's something deeply satisfying about well-crafted code. Beyond mere functionality, code can possess an elegance, a rhythm, and a visual appeal that sparks joy in those who create and maintain it. This is what we call "aesthetic code" – code that is a pleasure to read, understand, and modify.
 

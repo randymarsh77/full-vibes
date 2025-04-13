@@ -2,6 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import chalk from 'chalk';
+import fetch from 'node-fetch';
+import sharp from 'sharp';
+import { createHash } from 'crypto';
+import { execSync } from 'child_process';
 
 interface PostMeta {
 	title?: string;
@@ -88,6 +92,110 @@ function getAllUsedImageUrls(): string[] {
 	}
 
 	return usedUrls;
+}
+
+/**
+ * Downloads and optimizes an image from Unsplash
+ */
+async function downloadAndOptimizeImage(url: string): Promise<string | null> {
+	try {
+		console.log(chalk.blue(`Downloading image: ${url}`));
+
+		// Create a hash of the URL for a unique filename
+		const urlHash = createHash('md5').update(url).digest('hex').substring(0, 10);
+		const imageId = url.split('/').pop()?.split('?')[0] || urlHash;
+		const filename = `cover-${imageId}-${urlHash}.jpg`;
+
+		// Create the directory if it doesn't exist
+		const imagesDir = path.join(process.cwd(), 'public', 'images');
+		if (!fs.existsSync(imagesDir)) {
+			fs.mkdirSync(imagesDir, { recursive: true });
+		}
+
+		const outputPath = path.join(imagesDir, filename);
+
+		// If file already exists, return its path
+		if (fs.existsSync(outputPath)) {
+			console.log(chalk.green(`Image already exists at ${outputPath}`));
+			return `/images/${filename}`;
+		}
+
+		// Download the image
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`Failed to download image: ${response.statusText}`);
+		}
+
+		const buffer = await response.buffer();
+
+		// Save the original image
+		fs.writeFileSync(outputPath, buffer);
+
+		try {
+			console.log(chalk.blue(`Optimizing image...`));
+
+			await sharp(outputPath)
+				.resize(1200) // Limit max width to 1200px
+				.jpeg({ quality: 80, progressive: true })
+				.toFile(`${outputPath}.tmp`);
+
+			fs.renameSync(`${outputPath}.tmp`, outputPath);
+		} catch (optimizeError) {
+			console.log(chalk.yellow(`Error optimizing image: ${optimizeError.message}`));
+			// Continue with the unoptimized image
+		}
+
+		console.log(chalk.green(`Image saved to ${outputPath}`));
+		return `/images/${filename}`;
+	} catch (error) {
+		console.error(
+			chalk.red(
+				`Error downloading image: ${error instanceof Error ? error.message : String(error)}`
+			)
+		);
+		return null;
+	}
+}
+
+/**
+ * Converts Unsplash URLs in a post to local image paths
+ */
+async function convertUnsplashToLocalImages(
+	filePath: string,
+	checkOnly: boolean = false
+): Promise<boolean> {
+	const content = fs.readFileSync(filePath, 'utf8');
+	const parsed = matter(content);
+	const frontmatter = parsed.data as PostMeta;
+
+	// Check if coverImage is an Unsplash URL
+	if (
+		frontmatter.coverImage &&
+		typeof frontmatter.coverImage === 'string' &&
+		frontmatter.coverImage.includes('unsplash.com')
+	) {
+		console.log(chalk.yellow(`Found Unsplash URL in ${path.basename(filePath)}`));
+
+		if (!checkOnly) {
+			// Download and optimize the image
+			const localPath = await downloadAndOptimizeImage(frontmatter.coverImage);
+
+			if (localPath) {
+				// Update frontmatter with local image path
+				frontmatter.coverImage = localPath;
+
+				// Write the updated content back to file
+				const updatedContent = matter.stringify(parsed.content, frontmatter);
+				fs.writeFileSync(filePath, updatedContent);
+
+				console.log(chalk.green(`Updated coverImage to use local path: ${localPath}`));
+				return true;
+			}
+		}
+		return false;
+	}
+
+	return true; // No changes needed
 }
 
 /**
@@ -434,6 +542,19 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 		return true;
 	}
 
+	// Convert Unsplash images to local images if not in check-only mode
+	if (!checkOnly) {
+		convertUnsplashToLocalImages(filePath, checkOnly)
+			.then((updated) => {
+				if (updated) {
+					console.log(chalk.green(`Converted Unsplash images to local in ${filename}`));
+				}
+			})
+			.catch((error) => {
+				console.error(chalk.red(`Error converting images in ${filename}: ${error.message}`));
+			});
+	}
+
 	console.log(chalk.green(`✓ ${filename} has valid frontmatter`));
 	return true;
 }
@@ -472,32 +593,33 @@ function processPosts(targetPath?: string) {
 
 		validateAndFixPost(fullPath);
 	} else {
-		// Process all files
-		console.log(chalk.blue('Validating all posts in the posts directory...'));
+		(async () => {
+			// Process all files
+			console.log(chalk.blue('Validating all posts in the posts directory...'));
 
-		const files = fs
-			.readdirSync(postsDirectory)
-			.filter((file) => file.endsWith('.md'))
-			.map((file) => path.join(postsDirectory, file));
+			const files = fs
+				.readdirSync(postsDirectory)
+				.filter((file) => file.endsWith('.md'))
+				.map((file) => path.join(postsDirectory, file));
 
-		let validCount = 0;
-		let fixedCount = 0;
-		let errorCount = 0;
+			let validCount = 0;
+			let errorCount = 0;
 
-		for (const file of files) {
-			const result = validateAndFixPost(file);
-			if (result) {
-				validCount++;
-			} else {
-				errorCount++;
+			for (const file of files) {
+				const result = validateAndFixPost(file);
+				if (result) {
+					validCount++;
+				} else {
+					errorCount++;
+				}
 			}
-		}
 
-		console.log(chalk.blue('\nSummary:'));
-		console.log(chalk.green(`✓ ${validCount} posts validated successfully`));
-		if (errorCount > 0) {
-			console.log(chalk.red(`✗ ${errorCount} posts have errors that need manual attention`));
-		}
+			console.log(chalk.blue('\nSummary:'));
+			console.log(chalk.green(`✓ ${validCount} posts validated successfully`));
+			if (errorCount > 0) {
+				console.log(chalk.red(`✗ ${errorCount} posts have errors that need manual attention`));
+			}
+		})();
 	}
 }
 

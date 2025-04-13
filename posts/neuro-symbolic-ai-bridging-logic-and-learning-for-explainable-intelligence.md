@@ -5,7 +5,7 @@ excerpt: >-
   Exploring how neuro-symbolic AI combines neural networks' pattern recognition
   with symbolic reasoning's explainability to create more transparent,
   trustworthy AI systems that humans can understand and verify.
-coverImage: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd'
+coverImage: /images/cover-photo-1580894732444-8ecded7900cd-3fe3970bea.jpg
 ---
 As AI systems become increasingly integrated into critical aspects of our lives—from healthcare diagnostics to autonomous vehicles—the "black box" nature of deep learning presents a significant challenge. While neural networks excel at pattern recognition, they often can't explain their reasoning. Meanwhile, traditional symbolic AI offers clear logic but struggles with the messy complexities of real-world data. Neuro-symbolic AI represents an emerging paradigm that combines the best of both worlds: the learning capabilities of neural networks with the interpretability of symbolic reasoning.
 

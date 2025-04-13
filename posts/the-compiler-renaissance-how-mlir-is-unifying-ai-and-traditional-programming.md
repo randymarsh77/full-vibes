@@ -5,7 +5,7 @@ excerpt: >-
   Exploring how Multi-Level Intermediate Representation (MLIR) is bridging the
   gap between traditional compilers and machine learning frameworks, enabling
   unprecedented optimizations.
-coverImage: 'https://images.unsplash.com/photo-1579403124614-197f69d8187b'
+coverImage: /images/cover-photo-1579403124614-197f69d8187b-eacb74b33a.jpg
 ---
 In the divided landscape of computing, AI frameworks and traditional programming languages have long existed in separate domains, with different optimization techniques, toolchains, and communities. But beneath the surface, a quiet revolution is taking place at the compiler level. MLIR (Multi-Level Intermediate Representation) is emerging as a technological bridge that's unifying these worlds, enabling a new generation of performance optimizations and cross-framework compatibility that was previously impossible.
 

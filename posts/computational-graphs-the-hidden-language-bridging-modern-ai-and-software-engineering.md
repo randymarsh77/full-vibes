@@ -7,7 +7,7 @@ excerpt: >-
   Exploring how computational graphs have become the universal abstraction
   powering both AI frameworks and modern software development, creating new
   opportunities for cross-domain optimization.
-coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31'
+coverImage: /images/cover-photo-1558494949-ef010cbdcc31-d5e53d4129.jpg
 ---
 When we talk about AI and traditional software engineering, we often focus on their differences—neural networks versus object-oriented programming, PyTorch versus Java, differentiable versus discrete. But beneath these apparent contrasts lies a unifying abstraction that has quietly become the lingua franca of modern computing: the computational graph. This powerful representation is reshaping how we think about code execution, optimization, and the boundaries between AI and conventional programming.
 

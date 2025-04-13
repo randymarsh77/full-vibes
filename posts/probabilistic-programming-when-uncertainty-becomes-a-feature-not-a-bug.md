@@ -5,7 +5,7 @@ excerpt: >-
   Exploring how probabilistic programming languages are bridging the gap between
   statistical modeling and software engineering, enabling developers to build AI
   systems that reason with uncertainty.
-coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d'
+coverImage: /images/cover-photo-1509228627152-72ae9ae6848d-320e6525ea.jpg
 ---
 In traditional software development, uncertainty has always been the enemy. We build systems with precise logic, deterministic outcomes, and explicit error handling. But what if uncertainty isn't a limitation to overcome, but a powerful feature to embrace? This is the paradigm shift offered by probabilistic programming—a revolutionary approach that's transforming how we develop AI systems by encoding uncertainty directly into our code.
 

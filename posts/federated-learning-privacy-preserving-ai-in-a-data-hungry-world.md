@@ -5,7 +5,7 @@ excerpt: >-
   Exploring how federated learning enables AI advancement while keeping
   sensitive data local, revolutionizing the balance between model performance
   and privacy protection.
-coverImage: 'https://images.unsplash.com/photo-1633265486064-086b219458ec'
+coverImage: /images/cover-photo-1633265486064-086b219458ec-d00e3d4676.jpg
 ---
 In our increasingly connected digital ecosystem, the tension between data privacy and AI advancement has reached a critical point. Traditional machine learning approaches demand centralized data collection—often raising serious privacy concerns and regulatory challenges. Enter federated learning: a paradigm-shifting approach that allows models to learn from distributed datasets without ever moving sensitive information from its source. This revolutionary technique doesn't just solve a technical problem; it fundamentally reframes the relationship between AI systems and the data they learn from.
 

@@ -4,7 +4,7 @@ date: '2025-04-01'
 excerpt: >-
   How AI tools are transforming entrepreneurship and enabling a new generation
   of founders to build with unprecedented speed and efficiency.
-coverImage: 'https://images.unsplash.com/photo-1664574654578-d5a6a4f447bb'
+coverImage: /images/cover-photo-1664574654578-d5a6a4f447bb-778559d635.jpg
 ---
 The entrepreneurial landscape is undergoing a profound transformation. As artificial intelligence becomes more accessible and capable, it's not just changing how existing businesses operate—it's redefining what's possible for new ventures. Today's founders have access to AI tools that can compress years of effort into months, allowing for rapid iteration, enhanced creativity, and dramatically lower startup costs.
 

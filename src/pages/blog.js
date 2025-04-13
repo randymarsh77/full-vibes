@@ -50,7 +50,7 @@ export default function Blog({ allPostsData }) {
 				<h1 className="text-4xl font-bold font-display text-white mb-12 text-center">Blog</h1>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-					{allPostsData.map(({ id, date, title, excerpt, coverImage }) => (
+					{allPostsData.map(({ id, date, title, excerpt, coverImage }, index) => (
 						<article
 							key={id}
 							className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300 border border-white/5 shadow-lg shadow-vibe-purple/10"
@@ -62,7 +62,10 @@ export default function Blog({ allPostsData }) {
 										alt={title}
 										fill
 										className="object-cover"
-										unoptimized={true} // This ensures images work on Netlify
+										sizes="(max-width: 768px) 100vw, 50vw"
+										priority={index === 0} // Prioritize loading the first image
+										placeholder="blur"
+										blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
 									/>
 								</div>
 								<div className="p-6">

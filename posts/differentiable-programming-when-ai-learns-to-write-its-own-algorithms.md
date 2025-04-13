@@ -5,7 +5,7 @@ excerpt: >-
   Explore how differentiable programming is blurring the line between
   traditional coding and machine learning, enabling AI systems to optimize their
   own algorithms through gradient-based learning.
-coverImage: 'https://images.unsplash.com/photo-1526378800651-c32d170fe6f8'
+coverImage: /images/cover-photo-1526378800651-c32d170fe6f8-30bde708ec.jpg
 ---
 For decades, we've maintained a clear separation: humans write algorithms, machines execute them. But what if the machines could refine—or even create—those algorithms themselves? Differentiable programming is dissolving this boundary, allowing us to build software that can optimize itself through learning. It's not just a new programming paradigm; it's potentially the future of how we'll develop intelligent systems in an increasingly complex computational world.
 

@@ -5,7 +5,7 @@ excerpt: >-
   An exploration of how vector databases are becoming the essential
   infrastructure for modern AI systems, enabling semantic search, recommendation
   engines, and more.
-coverImage: 'https://images.unsplash.com/photo-1456428746267-a1756408f782'
+coverImage: /images/cover-photo-1456428746267-a1756408f782-51e8e189bd.jpg
 ---
 While the spotlight often shines on large language models and neural networks, the infrastructure that powers production AI applications deserves equal attention. Vector databases have quietly become one of the most transformative technologies in the AI developer's toolkit, enabling everything from semantic search to recommendation engines. As applications demand more contextual awareness and similarity-based intelligence, understanding these specialized databases is no longer optional—it's essential for any developer working at the intersection of AI and software engineering.
 

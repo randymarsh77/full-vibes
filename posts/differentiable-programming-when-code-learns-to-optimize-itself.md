@@ -1,12 +1,12 @@
 ---
-title: "Differentiable Programming: When Code Learns to Optimize Itself"
-date: "2025-04-09"
-excerpt: "Exploring how differentiable programming allows software to automatically optimize itself through gradient-based learning, bridging the gap between traditional coding and neural networks."
-coverImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb"
+title: 'Differentiable Programming: When Code Learns to Optimize Itself'
+date: '2025-04-09'
+excerpt: >-
+  Exploring how differentiable programming allows software to automatically
+  optimize itself through gradient-based learning, bridging the gap between
+  traditional coding and neural networks.
+coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb'
 ---
-
-# Differentiable Programming: When Code Learns to Optimize Itself
-
 The boundaries between traditional programming and artificial intelligence are dissolving. At this fascinating intersection stands differentiable programming—a paradigm that's revolutionizing how we think about software development. Unlike conventional programming where logic is explicitly defined, differentiable programming creates systems that can learn from data, adapt to new scenarios, and optimize themselves through gradient-based methods. This approach isn't just reshaping AI; it's fundamentally changing how we conceptualize software engineering itself.
 
 ## The Evolution from Fixed Logic to Learnable Programs

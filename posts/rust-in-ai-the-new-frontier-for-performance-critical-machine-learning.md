@@ -1,12 +1,11 @@
 ---
-title: "Rust in AI: The New Frontier for Performance-Critical Machine Learning"
-date: "2025-04-06"
-excerpt: "Why Rust is becoming the language of choice for developers building high-performance AI systems that combine safety, speed, and modern ergonomics."
-coverImage: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a"
+title: 'Rust in AI: The New Frontier for Performance-Critical Machine Learning'
+date: '2025-04-06'
+excerpt: >-
+  Why Rust is becoming the language of choice for developers building
+  high-performance AI systems that combine safety, speed, and modern ergonomics.
+coverImage: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a'
 ---
-
-# Rust in AI: The New Frontier for Performance-Critical Machine Learning
-
 The AI landscape is evolving at breakneck speed, with frameworks and models growing increasingly complex. Behind the scenes, a significant shift is occurring in the infrastructure that powers these systems. Rust, a language designed for performance, reliability, and memory safety, is steadily making inroads into AI development—challenging Python's dominance in specific, performance-critical domains. This transition isn't merely about language preference; it represents a fundamental rethinking of how we build AI systems that can scale efficiently while maintaining safety guarantees.
 
 ## The Performance Imperative in Modern AI

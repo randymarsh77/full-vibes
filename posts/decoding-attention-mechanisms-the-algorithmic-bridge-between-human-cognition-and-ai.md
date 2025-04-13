@@ -1,12 +1,14 @@
 ---
-title: "Decoding Attention Mechanisms: The Algorithmic Bridge Between Human Cognition and AI"
-date: "2025-04-08"
-excerpt: "How attention mechanisms have revolutionized AI by mimicking human cognitive processes, creating a new paradigm for both neural networks and software architecture."
-coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+title: >-
+  Decoding Attention Mechanisms: The Algorithmic Bridge Between Human Cognition
+  and AI
+date: '2025-04-08'
+excerpt: >-
+  How attention mechanisms have revolutionized AI by mimicking human cognitive
+  processes, creating a new paradigm for both neural networks and software
+  architecture.
+coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71'
 ---
-
-# Decoding Attention Mechanisms: The Algorithmic Bridge Between Human Cognition and AI
-
 When transformers burst onto the AI scene in 2017 with the landmark "Attention Is All You Need" paper, few predicted how profoundly this architectural innovation would reshape not just machine learning, but software engineering itself. At the heart of this revolution lies the attention mechanism—a computational approach that mirrors human cognitive processes while offering unprecedented flexibility for both neural and traditional computing paradigms. This algorithmic pattern has transcended its origins in NLP to become a fundamental design principle influencing everything from computer vision to software architecture.
 
 ## The Cognitive Parallel: How Attention Mimics Human Thinking

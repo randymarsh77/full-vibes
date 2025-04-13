@@ -27,6 +27,36 @@ function formatMarkdownContent(content: string): string {
 }
 
 /**
+ * Removes the duplicated title line that typically appears after frontmatter
+ * This function looks for a heading (# Title) that matches the frontmatter title
+ */
+function removeDuplicateTitle(content: string, title: string | undefined): string {
+	if (!title) return content;
+
+	// Parse the content to get just the part after frontmatter
+	const parsed = matter(content);
+	let contentBody = parsed.content;
+
+	// Escape special regex characters in the title
+	const escapedTitle = title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+	// Look for # Title at the beginning of the content (allowing for whitespace)
+	// This regex matches a line that starts with # followed by the title
+	const titlePattern = new RegExp(`^\\s*#\\s*${escapedTitle}\\s*$`, 'm');
+	const hasDuplicateTitle = titlePattern.test(contentBody);
+
+	if (hasDuplicateTitle) {
+		// Remove the title line and any blank lines that follow until we hit non-blank content
+		contentBody = contentBody.replace(titlePattern, '').replace(/^\s+/, '');
+
+		// Reconstruct the document with frontmatter
+		return matter.stringify(contentBody, parsed.data);
+	}
+
+	return content;
+}
+
+/**
  * Gets all image URLs used in existing posts
  */
 function getAllUsedImageUrls(): string[] {
@@ -312,6 +342,16 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 		}
 	}
 
+	// Check for duplicate title in content
+	if (frontmatter.title) {
+		const escapedTitle = frontmatter.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+		const titlePattern = new RegExp(`^\\s*#\\s*${escapedTitle}\\s*$`, 'm');
+		if (titlePattern.test(parsed.content)) {
+			console.log(chalk.yellow(`Found duplicate title in content of ${filename}`));
+			needsFix = true;
+		}
+	}
+
 	// If check only, don't make changes
 	if (checkOnly) {
 		return !needsFix;
@@ -320,6 +360,11 @@ function validateAndFixPost(filePath: string, checkOnly: boolean = false): boole
 	// Fix the post if needed
 	if (needsFix) {
 		console.log(chalk.yellow(`Fixing issues in ${filename}`));
+
+		// Remove duplicate title if it exists
+		if (frontmatter.title) {
+			content = removeDuplicateTitle(content, frontmatter.title);
+		}
 
 		// Check if frontmatter needs fixing
 		frontmatterNeedsFix = false;

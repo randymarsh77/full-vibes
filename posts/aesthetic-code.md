@@ -1,12 +1,11 @@
 ---
 title: 'The Art of Aesthetic Code: Writing Beautiful Code with AI'
-date: "2025-03-30"
-excerpt: 'How to leverage AI tools to write code that is not only functional but aesthetically pleasing.'
+date: '2025-03-30'
+excerpt: >-
+  How to leverage AI tools to write code that is not only functional but
+  aesthetically pleasing.
 coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c'
 ---
-
-# The Art of Aesthetic Code: Writing Beautiful Code with AI
-
 There's something deeply satisfying about well-crafted code. Beyond mere functionality, code can possess an elegance, a rhythm, and a visual appeal that sparks joy in those who create and maintain it. This is what we call "aesthetic code" – code that is a pleasure to read, understand, and modify.
 
 With the rise of AI coding assistants, we now have powerful tools that can help us craft more beautiful code. Let's explore how to leverage these AI partners to create code that maintains immaculate vibes.

@@ -1,12 +1,14 @@
 ---
-title: 'Prompting for Programmers: How to Collaborate Effectively with AI Coding Assistants'
+title: >-
+  Prompting for Programmers: How to Collaborate Effectively with AI Coding
+  Assistants
 date: '2025-04-02'
-excerpt: 'Master the art of crafting effective prompts to maximize your productivity with AI coding assistants. Learn how thoughtful prompting can transform your development workflow.'
+excerpt: >-
+  Master the art of crafting effective prompts to maximize your productivity
+  with AI coding assistants. Learn how thoughtful prompting can transform your
+  development workflow.
 coverImage: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159'
 ---
-
-# Prompting for Programmers: How to Collaborate Effectively with AI Coding Assistants
-
 The relationship between developers and AI tools has evolved from novelty to necessity. As coding assistants become more sophisticated, the difference between mediocre and exceptional results often comes down to one thing: how effectively you communicate with your AI partner. Mastering the art of prompting isn't just about getting code snippets faster—it's about unlocking a truly collaborative workflow that amplifies your capabilities as a developer.
 
 ## Understanding the Prompt-Response Paradigm

@@ -1,12 +1,11 @@
 ---
 title: 'AI Pair Programming: The Ultimate Vibes Boost'
-date: "2025-03-31"
-excerpt: 'How pairing with AI coding assistants can enhance your flow state and improve your programming experience.'
+date: '2025-03-31'
+excerpt: >-
+  How pairing with AI coding assistants can enhance your flow state and improve
+  your programming experience.
 coverImage: 'https://images.unsplash.com/photo-1607798748738-b15c40d33d57'
 ---
-
-# AI Pair Programming: The Ultimate Vibes Boost
-
 Programming has always been a craft that oscillates between moments of frustration and moments of flow. When you're in the zone, the code flows effortlessly from your fingertips. But when you're stuck, the experience can quickly turn into a vibe killer.
 
 Enter AI pair programming – a revolutionary approach that can help maintain those positive coding vibes throughout your development process.

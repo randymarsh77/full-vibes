@@ -9,7 +9,7 @@ export default function Post({ postData }) {
 	return (
 		<div className="bg-gradient-to-br from-vibe-dark to-vibe-darker min-h-screen">
 			<Head>
-				<title>{postData.title} | Full Vibes</title>
+				<title>{`${postData.title} | Full Vibes`}</title>
 				<meta name="description" content={postData.excerpt} />
 			</Head>
 

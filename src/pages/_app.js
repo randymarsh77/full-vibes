@@ -33,7 +33,7 @@ export default function MyApp({ Component, pageProps }) {
 		<>
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<title>Full Vibes</title>
+				<title>Full Vibes Dev</title>
 			</Head>
 			<Component {...pageProps} />
 		</>

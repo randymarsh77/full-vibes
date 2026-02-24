@@ -34,4 +34,3 @@ next-env.d.ts
 
 # subscriber data
 /data
-node_modules/

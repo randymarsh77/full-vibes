@@ -2,7 +2,6 @@ import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import fetch from 'node-fetch';
 import { validateAndFixPost, getAllUsedImageUrls } from './fix-post-frontmatter';
 
 const model = 'gpt-4o';
@@ -102,7 +101,7 @@ async function fetchHNStories(count: number = 15): Promise<HNStory[]> {
 
 	const storyPromises = topIds.slice(0, 50).map(async (id) => {
 		const res = await fetch(
-			`https://hacker-news.firebaseio.com/v0/item/${encodeURIComponent(id)}.json`
+			`https://hacker-news.firebaseio.com/v0/item/${id}.json`
 		);
 		return res.json() as Promise<HNStory>;
 	});
@@ -281,7 +280,7 @@ async function generateBlogPost(): Promise<BlogPostResult> {
 		throw new Error('GITHUB_TOKEN environment variable is not set');
 	}
 
-	// Initialize OpenAI client pointing at GitHub Models API
+	// Initialize OpenAI client pointing at GitHub Models API (Azure-hosted)
 	const client = new OpenAI({
 		baseURL: 'https://models.inference.ai.azure.com',
 		apiKey: token,

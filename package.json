@@ -22,8 +22,6 @@
 		"remark-html": "^15.0.2"
 	},
 	"devDependencies": {
-		"@anthropic-ai/claude-code": "^0.2.56",
-		"@anthropic-ai/sdk": "^0.39.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"@types/node": "20.4.5",
 		"@types/prismjs": "^1.26.3",
@@ -31,6 +29,7 @@
 		"autoprefixer": "^10.4.14",
 		"chalk": "^5.4.1",
 		"node-fetch": "^3.3.2",
+		"openai": "^6.25.0",
 		"oxlint": "^0.16.6",
 		"postcss": "^8.4.27",
 		"sharp": "^0.34.1",

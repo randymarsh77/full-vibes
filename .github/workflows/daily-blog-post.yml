@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  models: read # Required for accessing GitHub Models API
 
 jobs:
   generate-blog-post:
@@ -40,7 +41,7 @@ jobs:
       - name: Generate blog post
         run: yarn generate-post
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v7

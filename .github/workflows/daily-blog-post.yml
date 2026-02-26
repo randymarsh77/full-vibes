@@ -50,4 +50,4 @@ jobs:
           title: Add new post | ${{ env.DATE }}
           labels: allow-auto-merge
           branch: ${{ env.BRANCH_NAME }}
-          token: ${{ secrets.AUTO_MERGE_TOKEN }}
+          token: ${{ secrets.AUTO_MERGE_TOKEN || github.token }}

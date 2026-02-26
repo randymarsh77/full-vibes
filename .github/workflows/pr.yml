@@ -17,4 +17,4 @@ jobs:
         with:
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: rebase
-          token: ${{ secrets.AUTO_MERGE_TOKEN }}
+          token: ${{ secrets.AUTO_MERGE_TOKEN || github.token }}

@@ -4,7 +4,7 @@ export default function About() {
 	return (
 		<Layout
 			title="About"
-			description="Learn about Full Vibes Dev — a software development and contracting business building high-quality solutions."
+			description="Learn about Full Vibes Dev — deploying complete, scalable AI-powered engineering teams to manage your projects."
 		>
 			<div className="max-w-3xl mx-auto">
 				<h1 className="text-4xl font-bold font-display text-white mb-8 text-center">
@@ -14,42 +14,42 @@ export default function About() {
 				<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 mb-12 border border-white/5 shadow-lg shadow-vibe-purple/10">
 					<h2 className="text-2xl font-bold font-display text-white mb-4">Who We Are</h2>
 					<p className="text-vibe-gray mb-4">
-						Full Vibes Dev is a software development and contracting business focused on
-						building high-quality, performant software. We bring deep expertise across the
-						stack — from low-level systems programming and native app development to modern
-						web applications and developer tooling.
+						Full Vibes Dev deploys complete, scalable AI-powered engineering teams to
+						manage your projects. We combine deep technical expertise with cutting-edge
+						AI to deliver production-ready software — from architecture and planning
+						through deployment and maintenance.
 					</p>
 					<p className="text-vibe-gray mb-8">
-						We believe great software comes from combining strong engineering fundamentals
-						with a passion for craft. Every project we take on gets the same attention to
-						detail and commitment to quality.
+						We believe the future of software engineering is AI-augmented teams that
+						move faster, scale effortlessly, and deliver consistent quality. Every
+						project we take on gets a dedicated team built to match its unique needs.
 					</p>
 
-					<h2 className="text-2xl font-bold font-display text-white mb-4">Expertise</h2>
+					<h2 className="text-2xl font-bold font-display text-white mb-4">Capabilities</h2>
 					<ul className="text-vibe-gray mb-8 space-y-2">
 						<li className="flex items-start">
 							<span className="text-vibe-pink mr-2">✓</span>
-							<span>Native application development (Swift, iOS/macOS)</span>
+							<span>AI-powered engineering teams that ship production-quality code</span>
 						</li>
 						<li className="flex items-start">
 							<span className="text-vibe-pink mr-2">✓</span>
-							<span>Systems programming (Rust, C/C++)</span>
+							<span>Full project lifecycle management — from planning to deployment</span>
 						</li>
 						<li className="flex items-start">
 							<span className="text-vibe-pink mr-2">✓</span>
-							<span>Web applications and services (TypeScript, React, Next.js, Node.js)</span>
+							<span>Scalable capacity that grows with your needs — no hiring delays</span>
 						</li>
 						<li className="flex items-start">
 							<span className="text-vibe-pink mr-2">✓</span>
-							<span>Developer tools, CLIs, and build infrastructure</span>
+							<span>Web applications, APIs, native apps, and cloud infrastructure</span>
 						</li>
 						<li className="flex items-start">
 							<span className="text-vibe-pink mr-2">✓</span>
-							<span>DevOps, CI/CD, and Nix-based reproducible environments</span>
+							<span>DevOps, CI/CD, and automated deployment pipelines</span>
 						</li>
 						<li className="flex items-start">
 							<span className="text-vibe-pink mr-2">✓</span>
-							<span>Real-time audio/media streaming</span>
+							<span>Deep expertise across Swift, Rust, TypeScript, and more</span>
 						</li>
 					</ul>
 

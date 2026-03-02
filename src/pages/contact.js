@@ -4,7 +4,7 @@ export default function Contact() {
 	return (
 		<Layout
 			title="Contact"
-			description="Get in touch with Full Vibes Dev for software development and contracting inquiries."
+			description="Get in touch with Full Vibes Dev to deploy an AI-powered engineering team for your project."
 		>
 			<div className="max-w-3xl mx-auto">
 				<h1 className="text-4xl font-bold font-display text-white mb-8 text-center">
@@ -13,7 +13,7 @@ export default function Contact() {
 
 				<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 mb-12 border border-white/5 shadow-lg shadow-vibe-purple/10">
 					<p className="text-vibe-gray mb-8 text-lg text-center">
-						Interested in working together? We&apos;d love to hear about your project.
+						Ready to deploy an AI-powered engineering team? We&apos;d love to hear about your project.
 					</p>
 
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -55,21 +55,21 @@ export default function Contact() {
 								<div className="text-2xl mb-2">1️⃣</div>
 								<h3 className="text-white font-bold mb-1">Reach Out</h3>
 								<p className="text-vibe-gray text-sm">
-									Send us a message about your project or idea.
+									Tell us about your project and what you need built.
 								</p>
 							</div>
 							<div className="text-center">
 								<div className="text-2xl mb-2">2️⃣</div>
-								<h3 className="text-white font-bold mb-1">Discuss</h3>
+								<h3 className="text-white font-bold mb-1">Design Your Team</h3>
 								<p className="text-vibe-gray text-sm">
-									We&apos;ll talk through requirements, scope, and timeline.
+									We&apos;ll scope your project and assemble the right AI-powered engineering team.
 								</p>
 							</div>
 							<div className="text-center">
 								<div className="text-2xl mb-2">3️⃣</div>
-								<h3 className="text-white font-bold mb-1">Build</h3>
+								<h3 className="text-white font-bold mb-1">Ship</h3>
 								<p className="text-vibe-gray text-sm">
-									We get to work building your solution with full vibes.
+									Your team gets to work — managing, building, and delivering with full vibes.
 								</p>
 							</div>
 						</div>

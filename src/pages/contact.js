@@ -4,7 +4,7 @@ export default function Contact() {
 	return (
 		<Layout
 			title="Contact"
-			description="Get in touch with Full Vibes Dev to deploy an AI-powered engineering team for your project."
+			description="Get in touch with Full Vibes Dev to discuss solutions for autonomous AI-powered engineering teams."
 		>
 			<div className="max-w-3xl mx-auto">
 				<h1 className="text-4xl font-bold font-display text-white mb-8 text-center">
@@ -13,12 +13,12 @@ export default function Contact() {
 
 				<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 mb-12 border border-white/5 shadow-lg shadow-vibe-purple/10">
 					<p className="text-vibe-gray mb-8 text-lg text-center">
-						Ready to deploy an AI-powered engineering team? We&apos;d love to hear about your project.
+						Want to discuss solutions for autonomous AI engineering teams? We&apos;d love to hear from you.
 					</p>
 
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 						<a
-							href="mailto:hello@fullvibes.dev"
+							href="mailto:matthew@fullvibes.dev"
 							className="flex items-center gap-4 bg-vibe-darker/60 rounded-xl p-6 border border-white/5 hover:border-vibe-pink/30 transition group"
 						>
 							<div className="text-3xl">📧</div>
@@ -26,7 +26,7 @@ export default function Contact() {
 								<h3 className="text-lg font-bold font-display text-white group-hover:text-vibe-pink transition">
 									Email
 								</h3>
-								<p className="text-vibe-gray text-sm">hello@fullvibes.dev</p>
+								<p className="text-vibe-gray text-sm">matthew@fullvibes.dev</p>
 							</div>
 						</a>
 
@@ -55,14 +55,14 @@ export default function Contact() {
 								<div className="text-2xl mb-2">1️⃣</div>
 								<h3 className="text-white font-bold mb-1">Reach Out</h3>
 								<p className="text-vibe-gray text-sm">
-									Tell us about your project and what you need built.
+									Tell us about the solutions you&apos;re looking for.
 								</p>
 							</div>
 							<div className="text-center">
 								<div className="text-2xl mb-2">2️⃣</div>
 								<h3 className="text-white font-bold mb-1">Design Your Team</h3>
 								<p className="text-vibe-gray text-sm">
-									We&apos;ll scope your project and assemble the right AI-powered engineering team.
+									We&apos;ll explore how our tools can support your autonomous AI engineering needs.
 								</p>
 							</div>
 							<div className="text-center">

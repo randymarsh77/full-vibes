@@ -4,7 +4,7 @@ export default function About() {
 	return (
 		<Layout
 			title="About"
-			description="Learn about Full Vibes Dev — deploying complete, scalable AI-powered engineering teams to manage your projects."
+			description="Learn about Full Vibes Dev — building tools for autonomous AI-powered engineering teams."
 		>
 			<div className="max-w-3xl mx-auto">
 				<h1 className="text-4xl font-bold font-display text-white mb-8 text-center">
@@ -14,15 +14,15 @@ export default function About() {
 				<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 mb-12 border border-white/5 shadow-lg shadow-vibe-purple/10">
 					<h2 className="text-2xl font-bold font-display text-white mb-4">Who We Are</h2>
 					<p className="text-vibe-gray mb-4">
-						Full Vibes Dev deploys complete, scalable AI-powered engineering teams to
-						manage your projects. We combine deep technical expertise with cutting-edge
-						AI to deliver production-ready software — from architecture and planning
-						through deployment and maintenance.
+						Full Vibes Dev builds tools for autonomous AI-powered engineering teams.
+						We combine deep technical expertise with cutting-edge AI to enable
+						production-ready software — from architecture and planning through
+						deployment and maintenance.
 					</p>
 					<p className="text-vibe-gray mb-8">
-						We believe the future of software engineering is AI-augmented teams that
-						move faster, scale effortlessly, and deliver consistent quality. Every
-						project we take on gets a dedicated team built to match its unique needs.
+						We believe the future of software engineering is autonomous AI teams that
+						move faster, scale effortlessly, and deliver consistent quality. Our tools
+						are designed to empower these teams to reach their full potential.
 					</p>
 
 					<h2 className="text-2xl font-bold font-display text-white mb-4">Capabilities</h2>

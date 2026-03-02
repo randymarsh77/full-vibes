@@ -27,7 +27,7 @@ export default function Layout({ children, title, description }) {
 							</li>
 							<li>
 								<Link href="/projects" className="text-vibe-light hover:text-vibe-pink transition">
-									Projects
+									Open Source
 								</Link>
 							</li>
 							<li>

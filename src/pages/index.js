@@ -4,19 +4,19 @@ import Layout from '../components/Layout';
 export default function Home() {
 	return (
 		<Layout
-			title="Software Development & Contracting"
-			description="Full Vibes Dev — Software development and contracting services. Building high-quality software with good vibes."
+			title="AI-Powered Engineering Teams"
+			description="Full Vibes Dev — We deploy complete, scalable AI-powered engineering teams to manage your projects from start to finish."
 		>
 			<section className="text-center mb-16">
 				<h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-4">
-					Software Development with{' '}
+					AI-Powered Engineering Teams with{' '}
 					<span className="bg-clip-text text-transparent bg-gradient-to-r from-vibe-pink to-vibe-blue">
 						Full Vibes
 					</span>
 				</h1>
 				<p className="text-xl text-vibe-gray max-w-2xl mx-auto font-light">
-					Custom software development and contracting services. Building high-quality,
-					performant solutions with a focus on great developer experience.
+					We deploy complete, scalable AI-powered engineering teams to manage your
+					projects — from architecture to production.
 				</p>
 				<div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
 					<Link
@@ -40,31 +40,31 @@ export default function Home() {
 				</h2>
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 border border-white/5 shadow-lg shadow-vibe-purple/10 text-center">
-						<div className="text-4xl mb-4">🛠️</div>
-						<h3 className="text-xl font-bold font-display text-white mb-3">Custom Software</h3>
+						<div className="text-4xl mb-4">🤖</div>
+						<h3 className="text-xl font-bold font-display text-white mb-3">AI Engineering Teams</h3>
 						<p className="text-vibe-gray">
-							End-to-end software development tailored to your needs — from native apps to
-							web services and developer tools.
+							Complete, autonomous engineering teams powered by AI — ready to take on your
+							projects and ship production-quality code.
 						</p>
 					</div>
 					<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 border border-white/5 shadow-lg shadow-vibe-purple/10 text-center">
-						<div className="text-4xl mb-4">📱</div>
+						<div className="text-4xl mb-4">📈</div>
 						<h3 className="text-xl font-bold font-display text-white mb-3">
-							Native & Cross-Platform
+							Scalable by Design
 						</h3>
 						<p className="text-vibe-gray">
-							Expertise in Swift, Rust, TypeScript, and more. Building performant
-							applications across platforms.
+							Scale your engineering capacity on demand. Our AI-powered teams grow with
+							your needs — no hiring bottlenecks, no ramp-up time.
 						</p>
 					</div>
 					<div className="bg-vibe-dark/60 backdrop-blur-lg rounded-xl p-8 border border-white/5 shadow-lg shadow-vibe-purple/10 text-center">
-						<div className="text-4xl mb-4">⚙️</div>
+						<div className="text-4xl mb-4">🚀</div>
 						<h3 className="text-xl font-bold font-display text-white mb-3">
-							DevOps & Infrastructure
+							End-to-End Project Management
 						</h3>
 						<p className="text-vibe-gray">
-							CI/CD pipelines, Nix-based reproducible builds, auto-scaling runners, and
-							cloud infrastructure.
+							From planning and architecture to deployment and maintenance — we manage
+							the full lifecycle of your software projects.
 						</p>
 					</div>
 				</div>
@@ -75,7 +75,7 @@ export default function Home() {
 					Let&apos;s Build Something Great
 				</h2>
 				<p className="text-vibe-gray mb-6 max-w-2xl mx-auto">
-					Looking for a development partner? We&apos;d love to hear about your project.
+					Ready to deploy an AI-powered engineering team for your project? Let&apos;s talk.
 				</p>
 				<Link
 					href="/contact"

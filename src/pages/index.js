@@ -43,7 +43,7 @@ export default function Home() {
 						<div className="text-4xl mb-4">🤖</div>
 						<h3 className="text-xl font-bold font-display text-white mb-3">AI Engineering Teams</h3>
 						<p className="text-vibe-gray">
-							Complete, autonomous engineering teams powered by AI — ready to take on your
+							Complete engineering teams powered by AI — ready to take on your
 							projects and ship production-quality code.
 						</p>
 					</div>

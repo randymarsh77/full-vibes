@@ -284,10 +284,10 @@ export default function Projects() {
 
 	return (
 		<Layout
-			title="Projects"
+			title="Open Source"
 			description="Open source projects and software built by Full Vibes Dev — from real-time audio streaming to developer tools."
 		>
-			<h1 className="text-4xl font-bold font-display text-white mb-4 text-center">Projects</h1>
+			<h1 className="text-4xl font-bold font-display text-white mb-4 text-center">Open Source</h1>
 			<p className="text-vibe-gray text-center mb-8 max-w-2xl mx-auto">
 				Open source projects and tools. View more on{' '}
 				<a
